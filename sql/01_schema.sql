@@ -1,4 +1,5 @@
 -- 1. Création et configuration de la base
+DROP DATABASE IF EXISTS tifosi;
 CREATE DATABASE IF NOT EXISTS tifosi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE tifosi;
 
@@ -42,6 +43,7 @@ CREATE TABLE boisson (
 CREATE TABLE focaccia_ingredient (
     id_focaccia INT NOT NULL,
     id_ingredient INT NOT NULL,
+    quantite INT DEFAULT 0,
     PRIMARY KEY (id_focaccia, id_ingredient),
     CONSTRAINT fk_fi_focaccia FOREIGN KEY (id_focaccia) REFERENCES focaccia(id_focaccia),
     CONSTRAINT fk_fi_ingredient FOREIGN KEY (id_ingredient) REFERENCES ingredient(id_ingredient)
