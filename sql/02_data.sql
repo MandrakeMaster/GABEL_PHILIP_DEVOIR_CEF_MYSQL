@@ -28,10 +28,24 @@ INSERT INTO boisson (id_boisson, nom, id_marque) VALUES
 (8, 'Lipton zéro citron', 4), (9, 'Lipton Peach', 4), (10, 'Monster energy ultra gold', 3),
 (11, 'Monster energy ultra blue', 3), (12, 'Eau de source', 2);
 
--- 5. Insertion des PIVOTS (Exemple pour Mozaccia - id 1)
--- Lier Mozaccia (id 1) aux ingrédients (Base Tomate 5, Mozarella 25, Cresson 9, etc.)
-INSERT INTO focaccia_ingredient (id_focaccia, id_ingredient) VALUES
-(1, 5), (1, 25), (1, 9), (1, 13), (1, 1), (1, 3), (1, 7), (1, 18), (1, 20), (1, 16);
+-- 5. Insertion des PIVOTS (Liaisons Focaccia <-> Ingrédient) avec quantités en grammes
+INSERT INTO focaccia_ingredient (id_focaccia, id_ingredient, quantite) VALUES
+-- 1. Mozaccia (Base tomate:200, Mozarella:50, Cresson:20, Jambon fumé:80, Ail:2, Artichaut:20, Champignon:40, Parmesan:50, Poivre:1, Olive noire:20)
+(1, 5, 200), (1, 25, 50), (1, 9, 20), (1, 13, 80), (1, 1, 2), (1, 3, 20), (1, 7, 40), (1, 18, 50), (1, 20, 1), (1, 16, 20),
+-- 2. Gorgonzollaccia (Base tomate:200, Gorgonzola:50, Cresson:20, Ail:2, Champignon:40, Parmesan:50, Poivre:1, Olive noire:20)
+(2, 5, 200), (2, 11, 50), (2, 9, 20), (2, 1, 2), (2, 7, 40), (2, 18, 50), (2, 20, 1), (2, 16, 20),
+-- 3. Raclaccia (Base tomate:200, Raclette:50, Cresson:20, Ail:2, Champignon:40, Parmesan:50, Poivre:1)
+(3, 5, 200), (3, 22, 50), (3, 9, 20), (3, 1, 2), (3, 7, 40), (3, 18, 50), (3, 20, 1),
+-- 4. Emmentalaccia (Base crème:200, Emmental:50, Cresson:20, Champignon:40, Parmesan:50, Poivre:1, Oignon:20)
+(4, 6, 200), (4, 10, 50), (4, 9, 20), (4, 7, 40), (4, 18, 50), (4, 20, 1), (4, 15, 20),
+-- 5. Tradizione (Base tomate:200, Mozarella:50, Cresson:20, Jambon cuit:80, Champignon:80, Parmesan:50, Poivre:1, Olive noire:20, Olive verte:20)
+(5, 5, 200), (5, 25, 50), (5, 9, 20), (5, 12, 80), (5, 7, 80), (5, 18, 50), (5, 20, 1), (5, 16, 20), (5, 17, 20),
+-- 6. Hawaienne (Base tomate:200, Mozarella:50, Cresson:20, Bacon:80, Ananas:40, Piment:2, Parmesan:50, Poivre:1, Olive noire:20)
+(6, 5, 200), (6, 25, 50), (6, 9, 20), (6, 4, 80), (6, 2, 40), (6, 19, 2), (6, 18, 50), (6, 20, 1), (6, 16, 20),
+-- 7. Américaine (Base tomate:200, Mozarella:50, Cresson:20, Bacon:80, Pomme de terre:80, Parmesan:50, Poivre:1, Olive noire:20)
+(7, 5, 200), (7, 25, 50), (7, 9, 20), (7, 4, 80), (7, 21, 80), (7, 18, 50), (7, 20, 1), (7, 16, 20),
+-- 8. Paysanne (Base crème:200, Chevre:50, Cresson:20, Pomme de terre:80, Jambon fumé:80, Ail:2, Artichaut:20, Champignon:40, Parmesan:50, Poivre:1, Olive noire:20, Œuf:50)
+(8, 6, 200), (8, 8, 50), (8, 9, 20), (8, 21, 80), (8, 13, 80), (8, 1, 2), (8, 3, 20), (8, 7, 40), (8, 18, 50), (8, 20, 1), (8, 16, 20), (8, 14, 50);
 
 -- Réactivation des contrôles
 SET FOREIGN_KEY_CHECKS = 1;
